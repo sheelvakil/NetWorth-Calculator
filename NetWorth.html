@@ -1,0 +1,169 @@
+<html>
+<body>
+
+<h1> <b>Net Worth Calucator</b> </h1>
+
+<h2>Assets</h2>
+<h3><b>Cash and Cash Equivalents</b></h3>
+<p>Checking accounts $<input type="number" id="a"></p>
+<p>Savings accounts $<input type="number" id="b"></p>
+<p>Money market accounts $<input type="number" id="c"></p>
+<p>Saving bonds $<input type="number" id="d"></p>
+<p>CD's $<input type="number" id="e"></p>
+<p>Cash value of life insurance $<input type="number" id="f"></p>
+<button onclick="cashText()">Cash assets total</button>
+<p id ="cash"></p>
+    
+<h3><b>Invested Assets</b></h3>
+<p><u>Taxable accounts</u></p>
+    <ul>Brokerage $<input type="number" id="g"></ul>
+    <ul>Other: $<input type="number" id="h"></ul> 
+    
+<p><u>Retirement accounts</u></p>
+    <ul>IRA $<input type="number" id="i"></ul>
+    <ul>Roth IRA $<input type="number" id="j"></ul>
+    <ul>401(k) or 403(b) $<input type="number" id="k"></ul>
+    <ul>SEP-IRA $<input type="number" id="l"></ul>
+    <ul>Keogh or other qualified plan $<input type = "number" id="m"></ul>
+    <ul>Pension (vested benefit) $<input type = "number" id="n"></ul>
+    <ul>Annuity (accumulated value) $<input type = "number" id="o"></ul>
+
+<p><u>Business ownership Interests</u></p>
+    <ul>Real estate (rental property or land) $<input type="number" id="p"></ul>
+    <ul>Sole proprietorship $<input type="number" id="q"></ul>
+    <ul>Partnership $<input type="number" id="r"></ul>
+    <ul>C Corporation $<input type="number" id="s"></ul>
+    <ul>S Corporation $<input type="number" id="t"></ul>
+    <ul>Limited liability company $<input type="number" id="u"></ul>
+    <ul>Other: $<input type="number" id="v"></ul>
+    
+<button onclick="investedText()">Invested assets total</button>
+<p id="invested"></p>
+    
+<h3><b>Use Assets</b></h3>
+<p>Principal home $<input type="number" id="a1"></p>
+<p>Vacation home $<input type="number" id="a2"></p>
+<p>Cars, trucks, boats $<input type="number" id="a3"></p>
+<p>Home furnishings $<input type="number" id="a4"></p>
+<p>Collectibles/Valuables $<input type="number" id="a5"></p>
+<p>Other $<input type="number" id="a6"></p>
+<button onclick="useText()">Use assets total</button>
+<p id="use"></p>
+
+<button onclick="assetsText()">Total assets</button>
+<p id="assets"></p>
+    
+<h2>Liabilities</h2>
+<h3>Current</h3>
+    <p>Credit card balance $<input type="number" id="b1"></p>
+    <p>Estimated income tax owed $<input type="number" id="b2"></p>
+    <p>Other outstanding bills $<input type="number" id="b3"></p>
+    
+<h3>Long term</h3>
+    <p>Home mortgage $<input type="number" id="b4"></p>
+    <p>Home equity loan $<input type="number" id="b5"></p>
+    <p>Mortgages on rental properties $<input type="number" id="b6"></p>
+    <p>Car loans $<input type="number" id="b7"></p>
+    <p>Student loans $<input type="number" id="b8"></p>
+    <p>Life insurance policy loans $<input type="number" id="b9"></p>
+    <p>Other long-term debt $<input type="number" id="b10"></p>
+    
+<button onclick = "libText()">Liabilities Total</button>
+<p id="lib"></p>
+    
+<button onclick="netText()">Net Worth</button>
+<p id="net"></p>
+    
+<script>
+function cashTotal(){
+    var a = document.getElementById("a").value;
+    var b = document.getElementById("b").value;
+    var c = document.getElementById("c").value;
+    var d = document.getElementById("d").value;
+    var e = document.getElementById("e").value;
+    var f = document.getElementById("f").value;
+    var total = parseFloat(a) + parseFloat(b) + parseFloat(c) + parseFloat(d) + parseFloat(e) + parseFloat(f);
+    return total;
+}
+    
+function cashText(){
+     document.getElementById("cash").innerHTML = "The cash assets total is $" + cashTotal();
+}
+
+function investedTotal(){
+    var g = document.getElementById("g").value;
+    var h = document.getElementById("h").value;
+    var i = document.getElementById("i").value;
+    var j = document.getElementById("j").value;
+    var k = document.getElementById("k").value;
+    var l = document.getElementById("l").value;
+    var m = document.getElementById("m").value;
+    var n = document.getElementById("n").value;
+    var o = document.getElementById("o").value;
+    var p = document.getElementById("p").value;
+    var q = document.getElementById("q").value;
+    var r = document.getElementById("r").value;
+    var s = document.getElementById("s").value;
+    var t = document.getElementById("t").value;
+    var u = document.getElementById("u").value;
+    var v = document.getElementById("v").value;
+    var total = parseFloat(g) + parseFloat(h) + parseFloat(i) + parseFloat(j) + parseFloat(k) + parseFloat(l) + parseFloat(m) + parseFloat(n) + parseFloat(o) + parseFloat(p) + parseFloat(q) + parseFloat(r) + parseFloat(s) + parseFloat(t) + parseFloat(u) + parseFloat(v);
+    return total;
+}
+
+function investedText(){
+    document.getElementById("invested").innerHTML = "The invested assets total is $" + investedTotal();
+}
+    
+function useTotal(){
+    var a1 = document.getElementById("a1").value;
+    var a2 = document.getElementById("a2").value;
+    var a3 = document.getElementById("a3").value;
+    var a4 = document.getElementById("a4").value;
+    var a5 = document.getElementById("a5").value;
+    var a6 = document.getElementById("a6").value;
+    var total = parseFloat(a1) + parseFloat(a2) + parseFloat(a3) + parseFloat(a4) + parseFloat(a5) + parseFloat(a6);
+    return total;
+}
+
+function useText(){
+    document.getElementById("use").innerHTML = "The use assets total is  $" + useTotal();
+}
+
+function assetsTotal(){
+   return cashTotal() + investedTotal() + useTotal();
+}
+
+function assetsText(){
+    document.getElementById("assets").innerHTML = "Total assets is $" + assetsTotal();
+}
+    
+function libTotal(){
+    var b1 = document.getElementById("b1").value;
+    var b2 = document.getElementById("b2").value;
+    var b3 = document.getElementById("b3").value;
+    var b4 = document.getElementById("b4").value;
+    var b5 = document.getElementById("b5").value;
+    var b6 = document.getElementById("b6").value;
+    var b7 = document.getElementById("b7").value;
+    var b8 = document.getElementById("b8").value;
+    var b9 = document.getElementById("b9").value;
+    var b10 = document.getElementById("b10").value;
+    var total = parseFloat(b1) + parseFloat(b2) + parseFloat(b3) + parseFloat(b4) + parseFloat(b5) + parseFloat(b6) + parseFloat(b7) + parseFloat(b8) + parseFloat(b9) + parseFloat(b10) 
+    return total;
+}
+    
+function libText(){
+    document.getElementById("lib").innerHTML = "The libabilities total is $" + libTotal();
+}
+    
+function netTotal(){
+    return cashTotal() + investedTotal() + useTotal() - libTotal();
+}
+
+function netText(){
+    document.getElementById("net").innerHTML = "Your Net Worth is $" + netTotal();
+}
+</script>
+</body>
+</html>
